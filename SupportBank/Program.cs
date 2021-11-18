@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace SupportBank
 {
@@ -6,7 +7,15 @@ namespace SupportBank
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            using (var reader =
+                new StreamReader(@"C:\Work\Training\SupportBank\SupportBank-master\Transactions2014.csv"))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    Console.WriteLine(line);
+                }
+            }
         }
     }
 }
